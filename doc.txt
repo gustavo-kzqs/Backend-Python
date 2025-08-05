@@ -1,0 +1,48 @@
+Application Servers - Inves do pyhton servir requisições diretamente da camada
+de negocio da sua aplicação, o application server 
+promove esse acesso oferecendo diversas formas de comunicação
+adicionais, além de ser mais otimizado e performatico
+
+WSGI - é uma especificação de como servidores web
+precisam se comunicar com aplicações web e como elas podem ser 
+encadeadads para processar uma solicitação 
+
+
+Gunicorn - 
+
+    O pré fork worker:
+- O master cria os workers antes da tratar as requisições HTTP
+
+- O master cria diversas instancias da nossa aplicação e as mantem rodando
+verifica se estao rodando sem erros e distribui as requisições nessas instancias,
+verifica se há quantidade exata de workers que configuramos inicialmente.
+
+- Insstalar o gunicorn.
+sudo pip3 install gunicorn
+
+
+NGINX - 
+
+    Oferce baixo uso de memoria e alta disponibilidade.
+    Usa uma abordagem assincrona oriantada a eventos em que as 
+    solicitações sao tratadas em uma unica trhead
+
+    Funcionalidades do NGINX:
+
+    Proxy Reverso
+    IPv6
+    Load balance
+    FastCGI com Caching
+    WebSockets
+    Armazenamento de conteudo estatico, incluido arquivos e auto indexação
+    TLS/ SSL com SNI
+
+    Utilizando os dois juntos:
+
+    o Nginx estar a frente do app ou site, cuidando do certificado de segurança
+    alem de servir conteudos esstaticos como imagens, layout do site.
+
+    O Gunicorn esta proximo da sua aplicação tratando requisições que 
+    nao podem e nao foram tratados pelo Nginx como requisições de negocios que 
+    envolve tratamento da sua aplicação
+
