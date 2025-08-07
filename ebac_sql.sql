@@ -50,3 +50,12 @@ INSERT INTO product (product_id, name_product, price, description, stock_id) VAL
     (2, 'Ps5', 3850.00, 'Console Playstation 5', 2),
     (3, 'Smartphone', 1500.00, 'Smartphone Samsung Galaxy', 3),
     (4, 'Monitor', 1200.00, 'Monitor LG 27"', 4);
+
+
+    -- Relacionamento entre tabela de produto e estoque.
+    ALTER TABLE store.product
+    ADD CONSTRAINT fk_product_stock
+    FOREIGN KEY (stock_id)
+    REFERENCES store.stock (product_id);
+
+    
