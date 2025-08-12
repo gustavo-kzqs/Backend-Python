@@ -71,3 +71,15 @@ INSERT INTO product (product_id, name_product, price, description, stock_id) VAL
         store.stock s ON p.stock_id = s.product_id
     GROUP BY 
         p.name_product;
+
+    -- Exercicio de indices.
+
+    EXPLAIN ANALYZE
+    SELECT * FROM store.costumer WHERE cpf = '12345678901';
+
+    CREATE INDEX idx_costumer_cpf ON store.costumer(cpf);
+
+    EXPLAIN ANALYZE
+    SELECT * FROM store.costumer WHERE cpf = '12345678901';
+
+    
