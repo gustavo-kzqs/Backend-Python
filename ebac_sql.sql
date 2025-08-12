@@ -58,4 +58,16 @@ INSERT INTO product (product_id, name_product, price, description, stock_id) VAL
     FOREIGN KEY (stock_id)
     REFERENCES store.stock (product_id);
 
+    -- Agregação de dados.
+    -- Construir agregação para saber a quantidade de itens que cada produto tem.
+    -- Utilize a função de Group By e SUM junto com o JOIN nas tabelas de produto e estoque.
     
+    SELECT 
+        p.name_product,
+        SUM(s.quantity) AS total_quantity
+    FROM
+        store.product p
+    JOIN
+        store.stock s ON p.stock_id = s.product_id
+    GROUP BY 
+        p.name_product;
